@@ -1,0 +1,140 @@
+<html>
+<head></head>
+<style>
+	#title {
+		border: 7px solid green;
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/6c/Rattus_norvegicus_-_Brown_rat_05.jpg");
+		padding: 1rem;
+		background-size: contain;
+		color: greenyellow;
+		font-size: 3rem;
+		text-decoration: none;
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	#title > span {
+		background-color: white;
+		opacity: 90%;
+	}
+
+	button {
+		background: linear-gradient(to right, white, black);
+		color: lightgreen;
+		font-size: 1.2rem;
+	}
+
+	body {
+		align-items: center;
+		display: flex;
+		flex-flow: column;
+		max-width: 80rem;
+		margin: 0 auto;
+		text-align: center
+	}
+
+	body, body > * {
+		transition: background 6s ease 0s, opacity 3s ease 0s;
+		width: 80%;
+	}
+
+	body.black {
+		background: black;
+	}
+
+	body.black > *{
+		opacity: 0%;
+	}
+
+	#flowerpot{
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.flower {
+		border: 10px solid burlywood;
+		display: block;
+		height: 120px;
+		margin-top: 10px;
+		margin-bottom: 5px;
+		transition: height 8s ease 0.25s, width 8s ease 0.25s;
+		width: 160px;
+	}
+
+	.flower:hover {
+		height: 240px;
+		width: 320px;
+	}
+
+	@media(max-width: 1000px){
+		body{
+			background: green;
+		}
+		#largeScreenMessage {
+			display: none;			
+		}
+	}
+
+	@media(min-width: 1001px){
+		#smallScreenMessage {
+			display: none;
+		}
+	}
+
+	#blockingElement{
+		width: fit-content;
+		padding: 0.1rem;
+		transition: background 0s ease 0s;
+		border: 2px solid darkblue;
+	}
+
+	#blockingElement:hover{
+		background: lightblue;
+	}
+
+	#manOfMyDreams{
+		position: relative;
+		z-index: -1;
+	}
+</style>
+<body>
+	<h1 id="title"><span>No one can code like Bruno, no, no, no</span></h1>
+	<button id="button1" onclick="yourName()"> calls yourName()</button>
+		<p id="largeScreenMessage">Yeah, he sees your screen width > 1000px</p>
+		<p id="smallScreenMessage">and turns it all GREEEEN width <= 1000px</p>
+	<div id="flowerpot">
+	<figure>
+		<figcaption>Sundew</figcaption>
+		<img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/DroseraSchizandra.JPG/320px-DroseraSchizandra.JPG"></img>
+	</figure>
+	<figure>
+		<figcaption>Jacarandas</figcaption>
+		<img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Jacaranda_en_Avenida_S%C3%A1nchez_Piedras_de_la_Ciudad_de_Tlaxcala_01.jpg/320px-Jacaranda_en_Avenida_S%C3%A1nchez_Piedras_de_la_Ciudad_de_Tlaxcala_01.jpg"></img>
+	</figure>
+	<figure>
+		<figcaption>Tabebuia</figcaption>
+		<img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Tabebuia_maxonii_%286466247615%29.jpg/320px-Tabebuia_maxonii_%286466247615%29.jpg"></img>
+	</figure>
+	<figure>
+		<figcaption>Grapes</figcaption>
+		<img class="flower" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Concord_Grapes_on_vines.jpg/320px-Concord_Grapes_on_vines.jpg"></img>
+	</figure>
+	</div>
+	<p id="blockingElement">
+		<a id="manOfMyDreams" href="https://man7.org/linux/man-pages/">man of my dreams </a>
+	</p>
+</body>
+<script>
+	function yourName() {
+		console.log("fade to black");
+		let body=document.querySelector('body');
+		body.className="black";
+		setTimeout(() => {
+			body.className="";
+		},5000)
+	}
+	let lifeOfMyDreams = new Promise((resolve, reject) => {
+		console.log('dreams');
+	});
+</script>
+</html>
